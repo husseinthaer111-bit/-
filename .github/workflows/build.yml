@@ -35,11 +35,8 @@ jobs:
           pip install flet firebase-admin
 
       - name: Build APK
-        env:
-          CI: "true"
         run: |
-          echo "y" | flet build apk || true
-          flet build apk
+          flet build apk --no-interactive || flet build apk --yes
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
